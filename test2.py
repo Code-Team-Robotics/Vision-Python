@@ -5,12 +5,15 @@ from PIL import Image
 
 # Video source - can be camera index number given by 'ls /dev/video*
 # or can be a video file, e.g. '~/Video.avi'
-cap = cv2.VideoCapture(1)
-#frame = cv2.imread("/users/stephen/Documents/Github/Vision-Python/test.jpeg")
+#cap = cv2.VideoCapture(0)
+frame = cv2.imread("/users/stephen/Documents/Github/Vision-Python/test.jpeg")
 #print(type(frame[0][0]))
 #print(type(frame))
 while True:
-	ret, frame = cap.read()
+	#ret, frame = cap.read()
+	hsv = cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
+	print(type(hsv))
+			
 	for i, row in enumerate(frame):
 		for j, column in enumerate(row):
 			#if (i % 2 == 0) or (j %2 == 0):
@@ -18,9 +21,9 @@ while True:
 			#if sum(frame[i][j]) <= 500:
 			#print(f"The sum is {sum([frame[i][j][0], frame[i][j][1]])}")
 			#print(f"the value is {frame[i][j]}")
-			if (frame[i][j][0] > 150) and (frame[i][j][1] > 100) (frame[i][j][2] > 50):
+			if (frame[i][j][0] > 150) and (frame[i][j][1] > 100):
 				pass
-				
+
 			else:
 				#frame[i][j] = np.zeros((1,3))
 				frame[i][j] = np.array([0,0,0])
