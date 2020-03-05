@@ -5,12 +5,12 @@ from PIL import Image
 
 # Video source - can be camera index number given by 'ls /dev/video*
 # or can be a video file, e.g. '~/Video.avi'
-#cap = cv2.VideoCapture(0)
-frame = cv2.imread("/users/stephen/Documents/Github/Vision-Python/test.jpeg")
+cap = cv2.VideoCapture(0)
+#frame = cv2.imread("/users/stephen/Documents/Github/Vision-Python/test.jpeg")
 #print(type(frame[0][0]))
 #print(type(frame))
 while True:
-	#ret, frame = cap.read()
+	ret, frame = cap.read()
 	hsv = cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
 	print(type(hsv))
 			
@@ -37,8 +37,8 @@ while True:
 
 
 # When everything done, release the capture
-#cap.release()
-#cv2.destroyAllWindows()
+cap.release()
+cv2.destroyAllWindows()
 
 
 #plt.figure()
